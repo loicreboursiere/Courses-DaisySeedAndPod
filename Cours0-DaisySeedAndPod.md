@@ -51,7 +51,8 @@ La Daisy Seed s’appuie sur deux librairies principales https://github.com/elec
         (**Dans un terminal (ou git for windows)**)
         
         1. Placer vous dans le dossier de votre choix via la commande `cd` (si vous n’êtes pas à l’aise avec le terminal, vous devriez pouvoir glisser/déposer le dossier de votre choix à partir de votre explorateur de fichiers)
-        2. Exécuter cette commande : `git clone --recurse-submodules [https://github.com/electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExamples)` 
+        2. Exécuter cette commande :
+```git clone --recurse-submodules https://github.com/electro-smith/DaisyExamples``` 
             1. Tapez la commande : `ls -l` (Mac Linux) ou `dir` (Windows)
                 
                 `libDaisy >> Librairie daisy de base de l’écosystème Daisy`
