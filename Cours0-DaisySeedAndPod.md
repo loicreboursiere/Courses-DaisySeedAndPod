@@ -42,21 +42,24 @@ La Daisy Seed s’appuie sur deux librairies principales https://github.com/elec
 
 - Principal lien pour le setup de base : [https://daisy.audio/tutorials/cpp-dev-env/](https://daisy.audio/tutorials/cpp-dev-env/)
 - Les étapes :
-    1. Télécharger et Installer la toolchain Daisy correspondant à votre OS : 
-        1. [Toolchain Mac](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.2.0.pkg.zip) | [Toolchain Windows](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-1.1.0-win64.exe) (+ [git for Windows](https://gitforwindows.org/)) | [Toolchain Linux](https://daisy.audio/tutorials/toolchain-linux/)
-    2. Télécharger et installer VSCode
-        1. Pour Windows, quelques éléments supplémentaires pour VSCode : [https://daisy.audio/tutorials/cpp-dev-env/#3c-more-setup-windows-only](https://daisy.audio/tutorials/cpp-dev-env/#3c-more-setup-windows-only)
-    3. Clone des Daisy Examples 
+1. Télécharger et Installer la toolchain Daisy correspondant à votre OS : 
+
+[Toolchain Mac](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.2.0.pkg.zip) | [Toolchain Windows](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-1.1.0-win64.exe) (+ [git for Windows](https://gitforwindows.org/)) | [Toolchain Linux](https://daisy.audio/tutorials/toolchain-linux/)
+    
+2. Télécharger et installer VSCode
+- Pour Windows, quelques éléments supplémentaires pour VSCode : [https://daisy.audio/tutorials/cpp-dev-env/#3c-more-setup-windows-only](https://daisy.audio/tutorials/cpp-dev-env/#3c-more-setup-windows-only)
+3. Clone des Daisy Examples 
         
-        (**Dans un terminal (ou git for windows)**)
+  (**Dans un terminal (ou git for windows)**)
         
-        1. Placer vous dans le dossier de votre choix via la commande `cd` (si vous n’êtes pas à l’aise avec le terminal, vous devriez pouvoir glisser/déposer le dossier de votre choix à partir de votre explorateur de fichiers)
-        2. Exécuter cette commande :
+  1. Placer vous dans le dossier de votre choix via la commande `cd` (si vous n’êtes pas à l’aise avec le terminal, vous devriez pouvoir glisser/déposer le dossier de votre choix à partir de votre explorateur de fichiers)
+  2. Exécuter cette commande :
+     
 ```git
 git clone --recurse-submodules https://github.com/electro-smith/DaisyExamples
 ```
 
-3. Tapez la commande : `ls -l` (Mac Linux) ou `dir` (Windows)
+  3. Tapez la commande : `ls -l` (Mac Linux) ou `dir` (Windows)
                 
    `libDaisy >> Librairie daisy de base de l’écosystème Daisy`
                 
@@ -68,7 +71,7 @@ git clone --recurse-submodules https://github.com/electro-smith/DaisyExamples
                 
    `cube, field, petal, patch_sm, patch, versio >> ces dossiers sont des exemples pour d’autres cartes ou matériel de la marque`
                 
-    4. Uploader le code et faire fonctionner le code Blink LED : 
+4. Uploader le code et faire fonctionner le code Blink LED : 
         1. Dans VSCode : `File > Open Folder` et sélectionnez le dossier `DaisyExamples/seed/Blink`
         2. Passer la Daisy Seed en bootloader mode (après l’avoir connectée en USB
             1. Pressez et Restez appuyé sur Boot
