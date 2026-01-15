@@ -42,6 +42,7 @@ La Daisy Seed s’appuie sur deux librairies principales https://github.com/elec
 
 - Principal lien pour le setup de base : [https://daisy.audio/tutorials/cpp-dev-env/](https://daisy.audio/tutorials/cpp-dev-env/)
 - Les étapes :
+  
 1. Télécharger et Installer la toolchain Daisy correspondant à votre OS : 
 
 [Toolchain Mac](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.2.0.pkg.zip) | [Toolchain Windows](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-1.1.0-win64.exe) (+ [git for Windows](https://gitforwindows.org/)) | [Toolchain Linux](https://daisy.audio/tutorials/toolchain-linux/)
@@ -52,15 +53,15 @@ La Daisy Seed s’appuie sur deux librairies principales https://github.com/elec
         
   (**Dans un terminal (ou git for windows)**)
         
-  1. Placer vous dans le dossier de votre choix via la commande `cd` (si vous n’êtes pas à l’aise avec le terminal, vous devriez pouvoir glisser/déposer le dossier de votre choix à partir de votre explorateur de fichiers)
-  2. Exécuter cette commande :
+	1. Placer vous dans le dossier de votre choix via la commande `cd` (si vous n’êtes pas à l’aise avec le terminal, vous devriez pouvoir glisser/déposer le dossier de votre choix à partir de votre explorateur de fichiers)
+	2. Exécuter cette commande :
      
 ```git
 git clone --recurse-submodules https://github.com/electro-smith/DaisyExamples
 ```
 
-  3. Tapez la commande : `ls -l` (Mac Linux) ou `dir` (Windows)
-                
+	3. Tapez la commande : `ls -l` (Mac Linux) ou `dir` (Windows)
+
    `libDaisy >> Librairie daisy de base de l’écosystème Daisy`
                 
    `DaisySP >> Librairie contenant le code lié au DSP`
@@ -72,17 +73,18 @@ git clone --recurse-submodules https://github.com/electro-smith/DaisyExamples
    `cube, field, petal, patch_sm, patch, versio >> ces dossiers sont des exemples pour d’autres cartes ou matériel de la marque`
                 
 4. Uploader le code et faire fonctionner le code Blink LED : 
-        1. Dans VSCode : `File > Open Folder` et sélectionnez le dossier `DaisyExamples/seed/Blink`
-        2. Passer la Daisy Seed en bootloader mode (après l’avoir connectée en USB
-            1. Pressez et Restez appuyé sur Boot
-            2. Pressez et Restez appuyé sur Reset
-            3. Relâcher Reset
-            4. Relâcher Boot
-        3. Lancez la palette de commandes de VSCode : `CTRL + P` (Windows ou Linux) ou `Command + P`(Mac)
-            1.  Si c’est la première fois (ou si le code de libDaisy et/ou DaisySP a changé), tapez : `task build_all` puis `task build_and_program_dfu`
-            2. Sinon seulement `task build_and_program_dfu`
-            3. *Si vous utilisez un programmeur STM (comme le STLINK v3 mini, par exemple) la commande à utiliser est `task build_and_program` et non `task build_and_program_dfu`* 
-        4. Après l’upload du code, la LED embarquée sur la carte devrait se mettre à clignoter
+
+	1. Dans VSCode : `File > Open Folder` et sélectionnez le dossier `DaisyExamples/seed/Blink`
+    2. Passer la Daisy Seed en bootloader mode (après l’avoir connectée en USB
+		1. Pressez et Restez appuyé sur Boot
+        2. Pressez et Restez appuyé sur Reset
+        3. Relâcher Reset
+        4. Relâcher Boot
+    3. Lancez la palette de commandes de VSCode : `CTRL + P` (Windows ou Linux) ou `Command + P`(Mac)
+		1.  Si c’est la première fois (ou si le code de libDaisy et/ou DaisySP a changé), tapez : `task build_all` puis `task build_and_program_dfu`
+		2. Sinon seulement `task build_and_program_dfu`
+		3. *Si vous utilisez un programmeur STM (comme le STLINK v3 mini, par exemple) la commande à utiliser est `task build_and_program` et non `task build_and_program_dfu`*
+   		4. Après l’upload du code, la LED embarquée sur la carte devrait se mettre à clignoter
 
 ## 3. Daisy Pod
 
