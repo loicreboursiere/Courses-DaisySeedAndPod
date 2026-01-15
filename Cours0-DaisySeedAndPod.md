@@ -54,18 +54,19 @@ La Daisy Seed s’appuie sur deux librairies principales https://github.com/elec
         2. Exécuter cette commande :
 ```git
 git clone --recurse-submodules https://github.com/electro-smith/DaisyExamples
-``` 
-            1. Tapez la commande : `ls -l` (Mac Linux) ou `dir` (Windows)
+```
+
+3. Tapez la commande : `ls -l` (Mac Linux) ou `dir` (Windows)
                 
-                `libDaisy >> Librairie daisy de base de l’écosystème Daisy`
+   `libDaisy >> Librairie daisy de base de l’écosystème Daisy`
                 
-                `DaisySP >> Librairie contenant le code lié au DSP`
+   `DaisySP >> Librairie contenant le code lié au DSP`
                 
-                `seed >> Examples pour la Daisy Seed`
+   `seed >> Examples pour la Daisy Seed`
                 
-                `pod >> Examples pour la Daisy Pod`
+   `pod >> Examples pour la Daisy Pod`
                 
-                `cube, field, petal, patch_sm, patch, versio >> ces dossiers sont des exemples pour d’autres cartes ou matériel de la marque`
+   `cube, field, petal, patch_sm, patch, versio >> ces dossiers sont des exemples pour d’autres cartes ou matériel de la marque`
                 
     4. Uploader le code et faire fonctionner le code Blink LED : 
         1. Dans VSCode : `File > Open Folder` et sélectionnez le dossier `DaisyExamples/seed/Blink`
