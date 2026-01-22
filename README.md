@@ -5,8 +5,9 @@ Course about embedded audio processing using Daisy Seed and Daisy Pod (12h, 2026
 
 ## Courses
 
-- Course 0 : Daisy Seed and Pod - General Introduction ahd Hello Worlds : [Link]{https://github.com/loicreboursiere/Courses-DaisySeedAndPod/blob/main/Course0/README.md}
-- Course 1 : Studying audio examples : [Link]{https://github.com/loicreboursiere/Courses-DaisySeedAndPod/blob/main/Course1/README.md}
+- Course 0 : Daisy Seed and Pod - General Introduction ahd Hello Worlds : [Link](https://github.com/loicreboursiere/Courses-DaisySeedAndPod/tree/main/Course0)
+- Course 1 : Studying audio examples : [Link](https://github.com/loicreboursiere/Courses-DaisySeedAndPod/tree/main/Course1)
+
 
 ## Content of the repo : 
 
