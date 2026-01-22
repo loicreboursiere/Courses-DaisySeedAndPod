@@ -11,7 +11,6 @@ Course about embedded audio processing using Daisy Seed and Daisy Pod (12h, 2026
 
 ## Content of the repo : 
 
-```
 .
 ├── Course0
 │   ├── HelloAudioDaisyPod
@@ -21,7 +20,6 @@ Course about embedded audio processing using Daisy Seed and Daisy Pod (12h, 2026
 └── Course1
     ├── NomExemple-explanations-DONT_MODIFY_BUT_DUPLICATE.md
     └── README.md
-```
 
 
 *First iteration Jan 2026, Loïc Reboursière.*
