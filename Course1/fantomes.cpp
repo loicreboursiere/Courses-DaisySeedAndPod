@@ -6,13 +6,13 @@
 using namespace daisy;
 using namespace daisysp;
 
-DaisyPod   hw; //objet matériel avec : boutons, pota, audio, LEDs
-Oscillator osc[4]; //tableau de 4 oscillo
+DaisyPod   hw; //objet matériel avec : boutons, potentiomètre, audio, LEDs
+Oscillator osc[4]; //tableau de 4 oscilloscopes
 Parameter  p_freq, p_inversion; //objets qui lisent les potentiomètres
-int        notes[4]; //tablo de 4 notes (format MIDI)
-//int        chord[10][3]; //tablo de 10 accords à 3 intervalles
-Color      colors[10]; //tablo 10 couleurs : 1 pour chaque accords
-int        chordNum = 0; //num accords actuel, change quand encodeur tourné
+int        notes[4]; //tableau de 4 notes (format MIDI)
+//int        chord[10][3]; //tableau de 10 accords à 3 intervalles
+Color      colors[10]; //tableau 10 couleurs : 1 pour chaque accord
+int        chordNum = 0; //numéro de l'accord actuel, change quand l'encodeur est tourné
 
 //notes
 // Octave -1
@@ -160,6 +160,7 @@ int        chordNum = 0; //num accords actuel, change quand encodeur tourné
 #define LaDies8 118
 #define Si8 119
 
+//Mélodie Ghost Choir
 int        melodie1_t1[4][72] = {
 
     {Sol4, Sol4, Sol4, Sol4, Sol4, Sol4, Sol4, Sol4, Si4, Si4, Si4, Si4, LaDies4, LaDies4, LaDies4, LaDies4, 
@@ -194,7 +195,7 @@ int step = 0;
 int counter = 0;
 int length = 71;
 
-void UpdateControls(); //lit les pota, buttons, encodeur
+void UpdateControls(); //lit les potentiomètre, boutons, encodeur
 
 //génération du son, choix de la fréquence
 static void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
@@ -223,10 +224,10 @@ static void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
         }
     }
 
-    UpdateControls(); // lit la valeur des pota
+    UpdateControls(); // lit la valeur des potentiomètres
 
     for(int i=0; i<4; i++) {
-            osc[i].SetFreq(mtof(notes[i])); //envoie une freq def à chaque oscillo
+            osc[i].SetFreq(mtof(notes[i])); //envoie une fréquence definie à chaque oscilloscope
         }
 
     // Audio Loop
@@ -235,7 +236,7 @@ static void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
         float sig = 0; 
         for(int i = 0; i < 4; i++)
         {
-            sig += osc[i].Process(); //génère le signal sur chaque oscillo
+            sig += osc[i].Process(); //génère le signal sur chaque oscilloscope
         }
 
         //buffer audio de sortie, sig = son calculé, out = buffer audio de sortie
@@ -248,60 +249,22 @@ static void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
 // Initialise le synthétiseur de l'onde
 void InitSynth(float samplerate)
 {
-    // Init freq Parameter to knob1 using MIDI note numbers
+    
     //Initialise les fréquences associées au pota de 0 à 127 en notes MIDI
     // min 10, max 127, curve linear
     p_freq.Init(hw.knob1, 0, 127, Parameter::LINEAR); //hauteur de base de la note en MIDI : de 0 à 127
     p_inversion.Init(hw.knob2, 0, 5, Parameter::LINEAR); //Inversion d'accord : de 0 à 5
 
-    for(int i = 0; i < 4; i++) //Initialise les paramètres de l'onde : amplitude, forme, freq echantillon
+    for(int i = 0; i < 4; i++) //Initialise les paramètres de l'onde : amplitude, forme, fréquence d'échantillonnage
     {
-        osc[i].Init(samplerate); // freq echantillon
+        osc[i].Init(samplerate); // fréquence d'échantillonnage
         osc[i].SetAmp(0.1f); //l'amplitude choisie est basse pour éviter l'écrêtage et la saturation
         osc[i].SetWaveform(Oscillator::WAVE_SIN); //met la forme d'onde à une sinusoïde
-        notes[i] = 30; //init toutes les valeurs des notes à 30 (en MIDI)
+        notes[i] = 30; //initialise toutes les valeurs des notes à 30 (en MIDI)
     }
 }
 
-/*
-void InitChords() //initialise le tableau des accords avec 10 accords de 4 notes
-{
-    // Les intervalles de notes utilisées : 
-    // Maj, min, Aug, Dim
-    // Maj7, min7, dom7, min/Maj7
-    // dim7, half dim7
-
-    //set thirds
-    for(int i = 0; i < 8; i++)
-    {
-        //every other chord, maj third, min third
-        chord[i][0] = 3 + ((i + 1) % 2);
-    }
-    //min 3rds
-    chord[8][0] = chord[9][0] = 3;
-
-    //set fifths
-    // perfect 5th
-    chord[0][1] = chord[1][1] = chord[4][1] = chord[5][1] = chord[6][1]
-        = chord[7][1]                                     = 7;
-    // diminished 5th
-    chord[3][1] = chord[8][1] = chord[9][1] = 6;
-    // augmented 5th
-    chord[2][1] = 8;
-
-    //set sevenths
-    // triads (octave since triad has no 7th)
-    chord[0][2] = chord[1][2] = chord[2][2] = chord[3][2] = 12;
-    // major 7th
-    chord[4][2] = chord[7][2] = 11;
-    // minor 7th
-    chord[5][2] = chord[6][2] = chord[9][2] = 10;
-    // diminished 7th
-    chord[8][2] = 9;
-}
-*/
-
-void InitColors() //init les couleurs pour chaque accords
+void InitColors() //initialise les couleurs pour chaque accord
 {
     for(int i = 0; i < 7; i++)
     {
@@ -333,7 +296,7 @@ int main(void)
     while(1) {}
 }
 
-void UpdateEncoder() //change accords
+void UpdateEncoder() //change l'accord
 {
     if(hw.encoder.RisingEdge()) //si appuie, revient au premier accord
     {
