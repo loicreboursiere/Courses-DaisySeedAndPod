@@ -7,12 +7,12 @@ using namespace daisy;
 using namespace daisysp;
 
 DaisyPod   hw; //objet matériel avec : boutons, pota, audio, LEDs
-Oscillator osc[4]; //tableau de 4 oscillo
+Oscillator osc[4]; //tableau de 4 oscilloscopes
 Parameter  p_freq, p_inversion; //objets qui lisent les potentiomètres
-int        notes[4]; //tablo de 4 notes (format MIDI)
-int        chord[10][3]; //tablo de 10 accords à 3 intervalles
-Color      colors[10]; //tablo 10 couleurs : 1 pour chaque accords
-int        chordNum = 0; //num accords actuel, change quand encodeur tourné
+int        notes[4]; //tableau de 4 notes (format MIDI)
+int        chord[10][3]; //tableau de 10 accords à 3 intervalles
+Color      colors[10]; //tableau 10 couleurs : 1 pour chaque accords
+int        chordNum = 0; //numéro de l'accord actuel, change quand l'encodeur est tourné
 
 //notes
 // Octave -1
@@ -196,7 +196,7 @@ int step = 0;
 int counter = 0;
 int length = 71;
 
-void UpdateControls(); //lit les pota, buttons, encodeur
+void UpdateControls(); //lit les potentiomètres, boutons, encodeur
 
 //génération du son, choix de la fréquence
 static void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
